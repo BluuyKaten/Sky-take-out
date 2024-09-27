@@ -67,4 +67,13 @@ public interface DishMapper {
      */
     @AutoFill(value = OperationType.UPDATE)
     void update(Dish dish);
+
+    /**
+     * 根据用户id查询他创建的菜品
+     *
+     * @param id
+     * @return
+    @Select("SELECT * FROM sky_take_out.dish;select * from dish where create_user = #{id}")
+    Dish getByIdofUser(Long id);*/
+
 }

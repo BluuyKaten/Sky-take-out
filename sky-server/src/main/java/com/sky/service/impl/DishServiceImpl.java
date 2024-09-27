@@ -156,4 +156,21 @@ public class DishServiceImpl implements DishService {
             dishFlavorMapper.insertBatch(flavors);
         }
     }
+
+    /**
+     * 根据用户id查询他创建的菜品
+     *
+     * @param id
+     * @return
+    public DishVO getdishIdInUser(Long id) {
+        //根据id查询菜品数据
+        Dish dish = dishMapper.getByIdofUser(id);
+        //根据菜品id查询口味数据
+        List<DishFlavor> dishFlavors = dishFlavorMapper.getByDishId(dish.getId());
+        //将查询到的数据封装到VO
+        DishVO dishVO = new DishVO();
+        BeanUtils.copyProperties(dish, dishVO);
+        dishVO.setFlavors(dishFlavors);
+        return dishVO;
+    }*/
 }

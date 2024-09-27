@@ -97,4 +97,16 @@ public class DishController {
         return Result.success();
     }
 
+    /**
+     * 根据用户id查询他创建的菜品
+     *
+     * @param id
+     * @return
+    @GetMapping("/{id}")
+    @ApiOperation("根据用户id查询他创建的菜品")
+    public Result<DishVO> getdishIdInUser(@PathVariable Long id){
+        log.info("根据用户id查询他创建的菜品:{}",id);
+        DishVO dishVO = dishService.getdishIdInUser(id);
+        return Result.success(dishVO);
+    }*/
 }

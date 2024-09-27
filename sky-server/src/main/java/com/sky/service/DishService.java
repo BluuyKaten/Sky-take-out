@@ -45,4 +45,11 @@ public interface DishService {
      * @param dishDTO
      */
     void updateWithFlavor(DishDTO dishDTO);
+
+    /**
+     * 根据用户id查询他创建的菜品
+     *
+     * @param id
+     * @return
+    DishVO getdishIdInUser(Long id);*/
 }
