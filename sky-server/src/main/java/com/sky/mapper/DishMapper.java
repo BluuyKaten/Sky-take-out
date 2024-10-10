@@ -76,4 +76,11 @@ public interface DishMapper {
     @Select("SELECT * FROM sky_take_out.dish;select * from dish where create_user = #{id}")
     Dish getByIdofUser(Long id);*/
 
+    /**
+     * 动态条件查询菜品
+     * @param dish
+     * @return
+     */
+    List<Dish> list(Dish dish);
+
 }
