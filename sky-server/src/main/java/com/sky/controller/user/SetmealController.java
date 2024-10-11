@@ -50,15 +50,4 @@ public class SetmealController {
         return Result.success(list);
     }
 
-    /**
-     * 新增套餐
-     * @param setmealDTO
-     * @return
-     */
-    @PostMapping
-    @ApiOperation("新增套餐")
-    public Result save(@RequestBody SetmealDTO setmealDTO) {
-        setmealService.saveWithDish(setmealDTO);
-        return Result.success();
-    }
 }
