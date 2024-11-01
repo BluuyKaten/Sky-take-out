@@ -416,7 +416,7 @@ public class OrderServiceImpl implements OrderService{
      */
     public void cancel(OrdersCancelDTO ordersCancelDTO) throws Exception {
         // 根据id查询订单
-        Orders ordersDB = orderMapper.getById(ordersConfirmDTO.getId());
+        Orders ordersDB = orderMapper.getById(ordersCancelDTO.getId());
 
         //支付状态
         Integer payStatus = ordersDB.getPayStatus();
