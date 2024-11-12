@@ -149,6 +149,27 @@ public class OrderServiceImpl implements OrderService{
                 user.getOpenid() //微信用户的openid
         );
 
+/*
+
+    如果需要跳过微信支付功能，则不调用 weChatPayUtil.pay 方法，而是直接创建 OrderPaymentVO 对象
+        OrderPaymentVO vo = new OrderPaymentVO();
+//  假设您需要设置一些默认值或模拟数据
+        vo.setPrepayId("mock_prepay_id"); // 这是一个模拟的预支付会话标识
+        vo.setAppId("mock_app_id");        // 假设的微信应用ID
+        vo.setTimeStamp("mock_timestamp"); // 假设的时间戳
+        vo.setNonceStr("mock_nonce_str");  // 假设的随机字符串
+        vo.setSignType("mock_sign_type");  // 假设的签名类型
+
+//  设置package字段，通常这个字段在微信支付中是必须的，但因为是模拟，所以您可以设置一个模拟值
+//  注意：这里的"package"字段名在Java中可能需要特殊处理，因为"package"是Java的关键字
+//  可以使用反射或者通过Map来设置，或者如果OrderPaymentVO有对应的setter方法，确保方法名不是setPackage()
+//  假设我们在这里使用setPackageStr()来设置（如您的代码所示）
+        vo.setPackageStr("Sign=WXPay"); // 这是一个模拟的package值，实际使用时应该根据微信支付API文档来设置
+
+//  如果没有其他需要设置的字段，直接返回这个模拟的vo对象
+        return vo;
+*/
+
         if (jsonObject.getString("code") != null && jsonObject.getString("code").equals("ORDERPAID")) {
             throw new OrderBusinessException("该订单已支付");
         }
